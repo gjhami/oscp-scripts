@@ -22,3 +22,7 @@ apt install ./vscode.deb --assume-yes --quiet
 mkdir /mnt/hgfs
 echo 'vmhgfs-fuse /mnt/hgfs fuse defaults,allow_other,nofail 0 0' >> /etc/fstab
 ln -s /etc/hgfs/Exclusions /home/kali/Desktop/shared
+
+# Modify proxychains TCP timeouts to optimize for nmap scanning
+sudo sed -i 's/tcp_read_time_out.*/tcp_read_time_out 150/g' /etc/proxychains4.conf
+sudo sed -i 's/tcp_connect_time_out.*/tcp_connect_time_out 80/g' /etc/proxychains4.conf

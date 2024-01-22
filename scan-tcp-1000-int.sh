@@ -1,9 +1,12 @@
 #!/usr/bin/zsh
-cd /home/kali/oscp/external/scan-tcp-1000
-sudo nmap -sS -Pn --top-ports=1000 --open -vvv -oA tcp-1000 -iL /home/kali/oscp/external/targets.txt
+# Note: Proxychains must be configured before scanning internal hosts
+
+cd /home/kali/oscp/internal/scan-tcp-1000
+sudo proxychains nmap -sT -Pn --top-ports=1000 --open -vvv -oA tcp-1000 -iL /home/kali/oscp/internal/targets.txt
 
 # Parse common host files that can be enumerated for low hanging fruit
 cat tcp-1000.gnmap | grep 21/open/tcp | cut -d " " -f 2 >> ftp-hosts.txt
+cat tcp-1000.gnmap | grep 22/open/tcp | cut -d " " -f 2 >> ssh-hosts.txt
 cat tcp-1000.gnmap | grep 80/open/tcp | cut -d " " -f 2 >> http-hosts.txt
 cat tcp-1000.gnmap | grep 443/open/tcp | cut -d " " -f 2 >> https-hosts.txt
 cat tcp-1000.gnmap | grep 445/open/tcp | cut -d " " -f 2 >> smb-hosts.txt
