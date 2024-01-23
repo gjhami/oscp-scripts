@@ -2,8 +2,8 @@
 Personal scripts for the OSCP that others may find helpful.
 
 Next Steps
-- [ ] Add commands for web enumeration with ffuf
-- [ ] Add commands for smb enumeration
+- [x] Add commands for web enumeration with ffuf
+- [x] Add commands for smb enumeration
 - [ ] Add commands for common cracking
 - [ ] Add commands for common password validation
 - [ ] Add commands for common password guessing / spraying
