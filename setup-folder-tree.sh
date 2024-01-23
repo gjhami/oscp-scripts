@@ -78,16 +78,16 @@ cp /usr/share/windows-resources/mimikatz/x64/* /home/kali/oscp/server/privesc/
 # Powercat, PowerUp, PowerView, and Seatbelt from shared folder
 cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
 # PrintSpoofer
-wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe
-wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe
+wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe --quiet
+wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe --quiet
 
 # Pivot
 cd /home/kali/oscp/server/pivot
 # Get latest chisel for windows and linux
 VER=$(curl --silent -qI https://github.com/jpillora/chisel/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
-wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_linux_amd64.gz -O chisel_lin.gz
+wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_linux_amd64.gz -O chisel_lin.gz  --quiet
 gunzip chisel_lin.gz
-wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_windows_amd64.gz -O chisel_win.gz
+wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_windows_amd64.gz -O chisel_win.gz  --quiet
 gunzip chisel_win.gz
 mv chisel_win chisel_win.exe
 
