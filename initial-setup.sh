@@ -11,7 +11,6 @@ apt install libreoffice --assume-yes --quiet
 # Globally install python modules
 python -m pip install uploadserver
 python -m pip install bloodhound
-python -m pip install json.tool
 
 # Install vscode
 cd /home/kali/Downloads/
