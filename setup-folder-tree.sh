@@ -92,7 +92,6 @@ wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64
 # SweetPotato
 wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.5_Any/SweetPotato.exe -O sweetpotato_45.exe --quiet
 wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.7_Any/SweetPotato.exe -O sweetpotato_47.exe --quiet
-
 # Pivot
 cd /home/kali/oscp/server/pivot
 # Get latest chisel for windows and linux
