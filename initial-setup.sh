@@ -4,6 +4,7 @@
 
 # Update the sysetem and install some commonly used tools
 apt update --quiet && apt upgrade --assume-yes --quiet
+apt autoremove --assume-yes --quiet
 apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
 apt install libreoffice --assume-yes --quiet
