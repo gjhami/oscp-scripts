@@ -9,6 +9,8 @@ apt install peass --assume-yes --quiet
 apt install libreoffice --assume-yes --quiet
 
 # Globally install python modules
+python -m venv /home/kali/.venv
+source /home/kali/.venv/bin/activate
 python -m pip install uploadserver
 python -m pip install bloodhound
 
