@@ -5,11 +5,18 @@
 # Setup directory structure
 mkdir /home/kali/oscp
 cd /home/kali/oscp
+
+# Make folders for serving tools and exfiltrating loot
 mkdir server
 mkdir server/payloads
 mkdir server/privesc
 mkdir server/pivot
+mkdir server/loot
+
+# Make a folder for storing password cracks and custom wordlists
 mkdir cracking
+
+# Make directories for external scanning and each host
 mkdir external
 mkdir external/scan-tcp-1000
 mkdir external/scan-upd-100
@@ -19,6 +26,8 @@ mkdir external/ad-01-$(echo "${ad01}" | cut -d '.' -f 4)
 mkdir external/stand-01-$(echo "${stand01}" | cut -d '.' -f 4)
 mkdir external/stand-02-$(echo "${stand02}" | cut -d '.' -f 4)
 mkdir external/stand-03-$(echo "${stand03}" | cut -d '.' -f 4)
+
+# Make directories for internal scanning and each host
 mkdir internal
 mkdir internal/scan-tcp-1000
 mkdir internal/scan-upd-100
@@ -80,6 +89,9 @@ cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
 # PrintSpoofer
 wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe --quiet
 wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe --quiet
+# SweetPotato
+wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.5_Any/SweetPotato.exe -O sweetpotato_45.exe --quiet
+wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.7_Any/SweetPotato.exe -O sweetpotato_47.exe --quiet
 
 # Pivot
 cd /home/kali/oscp/server/pivot
