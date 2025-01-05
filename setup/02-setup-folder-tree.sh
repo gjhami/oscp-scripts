@@ -19,7 +19,7 @@ mkdir cracking
 # Make directories for external scanning and each host
 mkdir external
 mkdir external/scan-tcp-1000
-mkdir external/scan-upd-100
+mkdir external/scan-udp-100
 mkdir external/scan-tcp-all
 mkdir external/scan-udp-all
 mkdir external/ad-01-$(echo "${ad01}" | cut -d '.' -f 4)
