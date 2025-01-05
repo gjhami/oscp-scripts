@@ -27,6 +27,7 @@ apt install seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scri
 if [[ ! -d "/home/kali/.venv" ]]; then
   python -m venv /home/kali/.venv
 fi
+chown kali:kali /home/kali/.venv
 source /home/kali/.venv/bin/activate
 python -m pip install uploadserver
 python -m pip install bloodhound
