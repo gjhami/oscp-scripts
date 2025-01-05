@@ -16,6 +16,7 @@ apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
 apt install libreoffice --assume-yes --quiet
 apt install snmp-mibs-downloader --assume-yes --quiet
+apt install enum4linux-ng --assume-yes --quiet
 
 # Install autorecon dependencies
 apt install python3 --assume-yes --quiet
