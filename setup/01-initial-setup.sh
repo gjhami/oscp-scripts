@@ -10,7 +10,7 @@ echo 'setopt extended_history' | tee -a /root/.zshrc >> /home/kali/.zshrc # writ
 usermod -a -G kali-trusted kali
 
 # Update the sysetem and install some commonly used tools
-apt update --quiet && apt upgrade --assume-yes --quiet
+apt update --quiet && apt full-upgrade --assume-yes --quiet
 apt autoremove --assume-yes --quiet
 apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
