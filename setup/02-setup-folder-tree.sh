@@ -146,7 +146,7 @@ source ~/.zshrc
 pipx install git+https://github.com/Tib3rius/AutoRecon.git
 
 # Install a tool to dump all contents of smb shares
-git clone https://github.com/p0daliraius/DumpSMBShare.git
+git clone https://github.com/p0dalirius/DumpSMBShare.git
 
 # Install enum4linux-ng
 git clone https://github.com/cddmp/enum4linux-ng.git
