@@ -3,8 +3,11 @@
 # Installs useful programs and mounts a shared folder
 
 # Setup zsh to track all commands across tmux
-echo 'setopt append_history' | sudo tee -a /root/.zshrc >> /home/kali/.zshrc   # append to history file
-echo 'setopt extended_history' | sudo tee -a /root/.zshrc >> /home/kali/.zshrc # write the history file in the ':start:elapsed;command' format
+echo 'setopt append_history' | tee -a /root/.zshrc >> /home/kali/.zshrc   # append to history file
+echo 'setopt extended_history' | tee -a /root/.zshrc >> /home/kali/.zshrc # write the history file in the ':start:elapsed;command' format
+
+# Enable passwordless sudo access for the kali user
+usermod -a -G kali-trusted kali
 
 # Update the sysetem and install some commonly used tools
 apt update --quiet && apt upgrade --assume-yes --quiet
@@ -44,8 +47,8 @@ if [[ ! -d "/mnt/hgfs" ]]; then
 fi
 
 # Modify proxychains TCP timeouts to optimize for nmap scanning
-sudo sed -i 's/tcp_read_time_out.*/tcp_read_time_out 150/g' /etc/proxychains4.conf
-sudo sed -i 's/tcp_connect_time_out.*/tcp_connect_time_out 80/g' /etc/proxychains4.conf
+sed -i 's/tcp_read_time_out.*/tcp_read_time_out 150/g' /etc/proxychains4.conf
+sed -i 's/tcp_connect_time_out.*/tcp_connect_time_out 80/g' /etc/proxychains4.conf
 
 # Modify tmux to preserve sessions and windows after commands complete
-echo 'set -g remain-on-exit on' | sudo tee -a /root/.tmux.conf >> /home/kali/.tmux.conf
+echo 'set -g remain-on-exit on' | tee -a /root/.tmux.conf >> /home/kali/.tmux.conf
