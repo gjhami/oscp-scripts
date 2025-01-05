@@ -101,8 +101,8 @@ cp /usr/share/peass/linpeas/linpeas_linux_amd64 /home/kali/oscp/server/privesc/l
 cp /usr/share/peass/linpeas/linpeas.sh /home/kali/oscp/server/privesc/linpeas.sh
 # Mimikatz
 cp /usr/share/windows-resources/mimikatz/x64/* /home/kali/oscp/server/privesc/
-# Powercat and PowerView from shared folder
-cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
+# Powercat and PowerView from shared folder. Shared folder did not work.
+# cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
 # Seatbelt
 wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet4AnyCPU.exe -O seatbelt_4.exe --quiet
 wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet3.5AnyCPU.exe -O seatbelt_35.exe --quiet
