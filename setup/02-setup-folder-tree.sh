@@ -38,6 +38,7 @@ mkdir internal/ad-03-$(echo "${ad03}" | cut -d '.' -f 4)
 
 # Make a directory for storing autorecon output
 mkdir autorecon
+mkdir internal/autorecon
 
 # Make a directory for storing share dump results
 mkdir share_dumps
