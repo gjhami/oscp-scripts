@@ -2,7 +2,7 @@
 # Note: Proxychains must be configured before scanning internal hosts
 
 cd /home/kali/oscp/internal/scan-tcp-1000
-sudo proxychains nmap -sT -Pn --top-ports=1000 --open -vvv -oA tcp-1000 -iL /home/kali/oscp/internal/targets.txt
+sudo proxychains -q nmap -sT -Pn --top-ports=1000 --open -vvv -oA tcp-1000 -iL /home/kali/oscp/internal/targets.txt
 
 # Parse common host files that can be enumerated for low hanging fruit
 cat tcp-1000.gnmap | grep 21/open/tcp | cut -d " " -f 2 >> ftp-hosts.txt
