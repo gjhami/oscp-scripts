@@ -2,7 +2,7 @@
 # Note: Proxychains must be configured before scanning internal hosts
 
 cd /home/kali/oscp/internal/scan-tcp-all
-sudo proxychains nmap -sTV -O -Pn -p- --script=default --open -vvv -oA tcp-all -iL /home/kali/oscp/internal/targets.txt
+sudo proxychains -q nmap -sTV -O -Pn -p- --script=default --open -vvv -oA tcp-all -iL /home/kali/oscp/internal/targets.txt
 
 # Manually review results
 less ./tcp-all.nmap
