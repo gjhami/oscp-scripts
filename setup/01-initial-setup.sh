@@ -16,6 +16,7 @@ apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
 apt install libreoffice --assume-yes --quiet
 apt install snmp-mibs-downloader --assume-yes --quiet
+apt install jq --assume-yes --quiet
 
 # Install autorecon dependencies
 apt install python3 --assume-yes --quiet
@@ -25,7 +26,6 @@ apt install seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scri
 
 # Install other tools
 apt install enum4linux-ng --assume-yes --quiet
-sudo apt install neo4j --assume-yes --quiet
 sudo apt install bloodhound --assume-yes --quiet
 
 # Create a virtual environment and install python modules
