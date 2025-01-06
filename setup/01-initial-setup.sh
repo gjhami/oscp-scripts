@@ -16,13 +16,17 @@ apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
 apt install libreoffice --assume-yes --quiet
 apt install snmp-mibs-downloader --assume-yes --quiet
-apt install enum4linux-ng --assume-yes --quiet
 
 # Install autorecon dependencies
 apt install python3 --assume-yes --quiet
 apt install python3-pip --assume-yes --quiet
 apt install python3-venv --assume-yes --quiet
 apt install seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf --assume-yes --quiet
+
+# Install other tools
+apt install enum4linux-ng --assume-yes --quiet
+sudo apt install neo4j --assume-yes --quiet
+sudo apt install bloodhound --assume-yes --quiet
 
 # Create a virtual environment and install python modules
 if [[ ! -d "/home/kali/.venv" ]]; then
