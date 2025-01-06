@@ -52,5 +52,8 @@ fi
 sed -i 's/tcp_read_time_out.*/tcp_read_time_out 150/g' /etc/proxychains4.conf
 sed -i 's/tcp_connect_time_out.*/tcp_connect_time_out 80/g' /etc/proxychains4.conf
 
+# Modify proxychains host to use chisel default of socks5 on 127.0.0.1:1080
+sed -i 's/^socks4\s\+127\.0\.0\.1\s\+9050$/socks5  127.0.0.1 1080/g' /etc/proxychains4.conf
+
 # Modify tmux to preserve sessions and windows after commands complete
 echo 'set -g remain-on-exit on' | tee -a /root/.tmux.conf >> /home/kali/.tmux.conf
