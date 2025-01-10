@@ -50,13 +50,13 @@ mkdir /home/kali/tools
 # Make target files for internal and external targets
 
 # Setup external targets file for scanning
-echo "${ad01}" >> /home/kali/oscp/external/targets.txt
+echo "${ad01}" > /home/kali/oscp/external/targets.txt
 echo "${stand01}" >> /home/kali/oscp/external/targets.txt
 echo "${stand02}" >> /home/kali/oscp/external/targets.txt
 echo "${stand03}" >> /home/kali/oscp/external/targets.txt
 
 # Setup internal targets file for scanning
-echo "${ad02}" >> /home/kali/oscp/internal/targets.txt
+echo "${ad02}" > /home/kali/oscp/internal/targets.txt
 echo "${ad03}" >> /home/kali/oscp/internal/targets.txt
 
 # ------------------------------------------------------------
@@ -137,7 +137,6 @@ mv chisel_win chisel_win.exe
 # ------------------------------------------------------------
 
 # Setup Tools
-cd /home/kali/tools
 
 # Setup pipx
 python3 -m pipx ensurepath
@@ -147,10 +146,22 @@ source ~/.zshrc
 pipx install git+https://github.com/Tib3rius/AutoRecon.git
 
 # Install a tool to dump all contents of smb shares
+cd /home/kali/tools
 git clone https://github.com/p0dalirius/DumpSMBShare.git
 
 # Install enum4linux-ng
 git clone https://github.com/cddmp/enum4linux-ng.git
 cd enum4linux-ng
-source /home/kali/.venv/bin/activate
+python -m venv ./.venv
+source ./.venv/bin/activate
 python -m pip install -r ./requirements.txt
+deactivate
+
+# Install ldaprelayscan
+cd /home/kali/tools
+git clone https://github.com/zyn3rgy/LdapRelayScan.git
+cd LdapRelayScan
+python -m venv ./.venv
+source ./.venv/bin/activate
+python -m pip install -r requirements_exact.txt
+deactivate
