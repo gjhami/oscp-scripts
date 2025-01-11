@@ -6,7 +6,7 @@
 backup_dir=/home/kali/backup-oscp_$(date +"%m-%d-%Y_%H-%M")
 old_dirs=('oscp' 'tools' '.venv')
 mkdir "${backup_dir}"
-for old_dir in "${env_files[@]}"; do
+for old_dir in "${old_dirs[@]}"; do
   if [[ -d /home/kali/"${old_dir}" ]]; then
     mv /home/kali/"${old_dir}" "${backup_dir}"/
   fi
