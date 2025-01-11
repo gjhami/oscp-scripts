@@ -3,7 +3,7 @@
 # Sets up directory structure and default files for the exam
 
 # Backup any existing files
-backup_dir=/home/kali/oscp-backup_$(date +"%m-%d-%Y_%H-%M")
+backup_dir=/home/kali/backup-oscp_$(date +"%m-%d-%Y_%H-%M")
 old_dirs=('oscp' 'tools' '.venv')
 mkdir "${backup_dir}"
 for old_dir in "${env_files[@]}"; do
