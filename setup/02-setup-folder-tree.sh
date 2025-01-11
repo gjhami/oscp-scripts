@@ -2,6 +2,17 @@
 # Note: Make sure environment variables are configured before running. Run as kali.
 # Sets up directory structure and default files for the exam
 
+# Backup any existing files
+backup_dir=/home/kali/oscp-backup_$(date +"%m-%d-%Y_%H-%M")
+old_dirs=('oscp' 'tools' '.venv')
+mkdir "${backup_dir}"
+for old_dir in "${env_files[@]}"; do
+  if [[ -d /home/kali/"${old_dir}" ]]; then
+    mv /home/kali/"${old_dir}" "${backup_dir}"/
+  fi
+done
+tar czf "${backup_dir}".tgz "${backup_dir}"
+
 # Setup directory structure
 mkdir /home/kali/oscp
 cd /home/kali/oscp
@@ -37,7 +48,7 @@ mkdir internal/ad-02-$(echo "${ad02}" | cut -d '.' -f 4)
 mkdir internal/ad-03-$(echo "${ad03}" | cut -d '.' -f 4)
 
 # Make a directory for storing autorecon output
-mkdir autorecon
+mkdir external/autorecon
 mkdir internal/autorecon
 
 # Make a directory for storing share dump results
