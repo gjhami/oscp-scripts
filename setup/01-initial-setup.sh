@@ -9,8 +9,11 @@ echo 'setopt extended_history' | tee -a /root/.zshrc >> /home/kali/.zshrc # writ
 # Enable passwordless sudo access for the kali user
 usermod -a -G kali-trusted kali
 
-# Update the sysetem and install some commonly used tools
-apt update --quiet && apt full-upgrade --assume-yes --quiet
+# Add the debian bullseye repo to get access to the wkhtmltopdf package required for autorecon
+echo 'deb https://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list
+
+# Update the system and install some commonly used tools
+apt update --quiet && apt-get upgrade --assume-yes --quiet
 apt autoremove --assume-yes --quiet
 apt install neo4j --assume-yes --quiet
 apt install peass --assume-yes --quiet
