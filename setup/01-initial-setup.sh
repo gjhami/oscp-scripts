@@ -45,7 +45,7 @@ cd /home/kali/Downloads/
 if [[ -f "vscode.deb" ]]; then
   rm -rf vscode.deb
 fi
-wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O vscode.deb --quiet
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O vscode.deb --quiet --connect-timeout 1
 apt install ./vscode.deb --assume-yes --quiet
 
 # Setup, mount, and symlink the shared folder
@@ -66,7 +66,6 @@ sed -i 's/^socks4\s\+127\.0\.0\.1\s\+9050$/socks5  127.0.0.1 1080/g' /etc/proxyc
 echo 'set -g remain-on-exit on' | tee -a /root/.tmux.conf >> /home/kali/.tmux.conf
 
 # Set a background and lock screen image
-sudo wget https://wallpaperbat.com/img/430171-minimalist-mrrobot-wallpaper-1920x1080.png -O /usr/share/backgrounds/wallpaper.png
-sudo chmod 444 /usr/share/backgrounds/wallpaper.png
+sudo wget https://wallpaperbat.com/img/430171-minimalist-mrrobot-wallpaper-1920x1080.png -O /usr/share/backgrounds/wallpaper.png --connect-timeout 1
 sudo sed -i 's|background = /usr/share/desktop-base/kali-theme/login/background|background = /usr/share/backgrounds/wallpaper.png|g' /etc/lightdm/lightdm-gtk-greeter.conf
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s /usr/share/backgrounds/wallpaper.png
