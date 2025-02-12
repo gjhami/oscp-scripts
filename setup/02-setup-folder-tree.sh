@@ -113,7 +113,7 @@ msfvenom --payload linux/x86/shell_reverse_tcp --platform linux --arch x86 LHOST
 # Privesc
 cd /home/kali/oscp/server/privesc
 # Script for uploading files to python's uploadserver from PowerShell
-wget https://raw.githubusercontent.com/juliourena/plaintext/refs/heads/master/Powershell/PSUpload.ps1 -O PSUpload.ps1 --quiet
+wget https://raw.githubusercontent.com/juliourena/plaintext/refs/heads/master/Powershell/PSUpload.ps1 -O PSUpload.ps1 --quiet --connect-timeout 1 --background -o /dev/null
 # PEAS
 sudo apt install peass --assume-yes --quiet
 cp /usr/share/peass/winpeas/winPEASx64.exe /home/kali/oscp/server/privesc/winpeas.exe
@@ -125,23 +125,31 @@ cp /usr/share/windows-resources/mimikatz/x64/* /home/kali/oscp/server/privesc/
 # Powercat and PowerView from shared folder. Shared folder did not work.
 # cp /home/kali/Desktop/shared/Payloads/other-privesc/* ./
 # Seatbelt
-wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet4AnyCPU.exe -O seatbelt_4.exe --quiet
-wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet3.5AnyCPU.exe -O seatbelt_35.exe --quiet
+wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet4AnyCPU.exe -O seatbelt_4.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
+wget https://raw.githubusercontent.com/carlospolop/winPE/refs/heads/master/binaries/seatbelt/SeatbeltNet3.5AnyCPU.exe -O seatbelt_35.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
 # PowerUp
-wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/refs/heads/master/Privesc/PowerUp.ps1 -O powerup.ps1 --quiet
+wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/refs/heads/master/Privesc/PowerUp.ps1 -O powerup.ps1 --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
 # PrintSpoofer
-wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe --quiet
-wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe --quiet
+wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
+wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe -O printspoofer32.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
 # SweetPotato
-wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.5_Any/SweetPotato.exe -O sweetpotato_45.exe --quiet
-wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.7_Any/SweetPotato.exe -O sweetpotato_47.exe --quiet
+wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.5_Any/SweetPotato.exe -O sweetpotato_45.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
+wget https://raw.githubusercontent.com/Flangvik/SharpCollection/refs/heads/master/NetFramework_4.7_Any/SweetPotato.exe -O sweetpotato_47.exe --quiet --connect-timeout 1 --background -o /dev/null
+# PEAS
 # Pivot
 cd /home/kali/oscp/server/pivot
 # Get latest chisel for windows and linux
 VER=$(curl --silent -qI https://github.com/jpillora/chisel/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
-wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_linux_amd64.gz -O chisel_lin.gz  --quiet
+wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_linux_amd64.gz -O chisel_lin.gz  --quiet --connect-timeout 1
+# PEAS
 gunzip chisel_lin.gz
-wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_windows_amd64.gz -O chisel_win.gz  --quiet
+wget https://github.com/jpillora/chisel/releases/download/"${VER}"/chisel_"${VER#v}"_windows_amd64.gz -O chisel_win.gz  --quiet --connect-timeout 1
 gunzip chisel_win.gz
 mv chisel_win chisel_win.exe
 
